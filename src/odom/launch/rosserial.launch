@@ -1,0 +1,3 @@
+<launch>
+<node name="ros_serial"  pkg="rosserial_python"  type="serial_node.py" output="screen" args="/dev/ttyACM0"/>
+</launch>

@@ -1,0 +1,2 @@
+- setup-file:
+    local-name: /home/ros/robot/devel_isolated/rosserial_vex_v5/setup.sh

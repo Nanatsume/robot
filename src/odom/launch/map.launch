@@ -1,0 +1,21 @@
+<!-- Run the map server   myhome.pgm-->
+  <node name="map_server" pkg="map_server" type="map_server" args="/home/ros/robot/src/home_map_ok.yaml"/>
+
+<!--- Run AMCL -->
+<include file="$(find amcl)/examples/amcl_diff.launch" /> 
+
+<!--mamap2 -->
+<node pkg="move_base" type="move_base" respawn="true" name="move_base" output="screen">
+    <param name="controller_frequency" value="5.0" />
+    <param name="base_global_planner" value="carrot_planner/CarrotPlanner" /> 
+    <rosparam file="/home/ros/robot/src/navigation/costmap_common_params.yaml" command="load" ns="global_costmap" />
+    <rosparam file="/home/ros/robot/src/navigation/costmap_common_params.yaml" command="load" ns="local_costmap" />
+    <rosparam file="/home/ros/robot/src/navigation/local_costmap_params.yaml" command="load" />
+    <rosparam file="/home/ros/robot/src/navigation/global_costmap_params.yaml" command="load"/>
+    <rosparam file="/home/ros/robot/src/navigation/base_local_planner_params.yaml" command="load" />
+    <rosparam file="/home/ros/robot/src/navigation/teb_local_planner_params.yaml" command="load"/>
+    <rosparam file="/home/ros/robot/src/navigation/base_global_planner_params.yaml" command="load"/>
+  </node>
+  
+  <node pkg="send_goal_action_loop" type="send_goal_action" name="send_goal_action" output="screen" /> 
+</node>

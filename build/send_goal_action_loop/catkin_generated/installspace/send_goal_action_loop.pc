@@ -1,0 +1,8 @@
+prefix=/home/ros/robot/install
+
+Name: send_goal_action_loop
+Description: Description of send_goal_action_loop
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 
